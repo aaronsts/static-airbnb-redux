@@ -9,6 +9,10 @@ body {
   flex-wrap: wrap;
 }
 
+.flat.selected {
+  border: 1px black solid;
+}
+
 #root {
   padding: 1rem;
 }

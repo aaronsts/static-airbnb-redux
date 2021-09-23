@@ -8,12 +8,8 @@ import { connect } from "react-redux";
 import { setFlats } from "../actions";
 
 // Components
-import Flat from "../components/flat";
+import Flat from "./flat";
 class FlatList extends Component {
-  componentWillMount() {
-    // dispatch action to update redux tree (flats)
-  }
-
   // TEMPORARY CODE TO INTEGRATE HTML
   static defaultProps = {
     flats: [
@@ -26,6 +22,11 @@ class FlatList extends Component {
       },
     ],
   };
+
+  componentWillMount() {
+    // dispatch action to update redux tree (flats)
+    this.props.setFlats();
+  }
 
   render() {
     return (
@@ -42,4 +43,11 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({ setFlats: setFlats }, dispatch);
 }
 
-export default connect(null, mapDispatchToProps)(FlatList);
+function mapStateToProps(reduxState) {
+  return {
+    // now we have access to this.props.flats with the updated state
+    flats: reduxState.flats,
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(FlatList);

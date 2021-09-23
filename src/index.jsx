@@ -14,10 +14,12 @@ import App from "./components/app";
 
 // Recuders
 import flatsReducer from "./reducers/flats_reducer";
+import selectedFlatsReducer from "./reducers/selected_flats_recuder";
 
 // Combine all reducers
 const reducers = combineReducers({
   flats: flatsReducer,
+  selectedFlat: selectedFlatsReducer,
 });
 
 // Render App
