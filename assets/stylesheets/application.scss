@@ -1,10 +1,14 @@
+@import "cards";
+
 body {
   font-family: Helvetica;
 }
 
-#root {
-  height: 100vh;
+.flat-list {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#root {
+  padding: 1rem;
 }
