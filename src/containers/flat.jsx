@@ -16,7 +16,7 @@ class Flat extends Component {
       backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${this.props.flat.imageUrl})`,
     };
 
-    let classes = "card-category";
+    let classes = "card-category ";
     if (this.props.flat === this.props.selectedFlat) {
       classes += "selected";
     }
