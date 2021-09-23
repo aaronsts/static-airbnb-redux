@@ -1,9 +1,19 @@
 /* eslint-disable react/prefer-stateless-function */
+// React
 import React, { Component } from "react";
 
-import Flat from "../components/flat";
+// Redux + Actions
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import { setFlats } from "../actions";
 
+// Components
+import Flat from "../components/flat";
 class FlatList extends Component {
+  componentWillMount() {
+    // dispatch action to update redux tree (flats)
+  }
+
   // TEMPORARY CODE TO INTEGRATE HTML
   static defaultProps = {
     flats: [
@@ -28,4 +38,8 @@ class FlatList extends Component {
   }
 }
 
-export default FlatList;
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ setFlats: setFlats }, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(FlatList);
